@@ -23,8 +23,8 @@ stages:
       nfiles: 1
     - path: src/preprocess.py
       hash: md5
-      md5: ad4d40651db629b11a426b3914dc316c
-      size: 821
+      md5: 13929863d16be5a63fc1e655f83e0763
+      size: 921
     params:
       params.yaml:
         preprocess.seed: 42
@@ -32,16 +32,16 @@ stages:
     outs:
     - path: data/processed
       hash: md5
-      md5: b7fd585fbabc3ba03cba1b2f9d71a478.dir
-      size: 47448132
+      md5: 0a80d5f1cbbd1688d5d60785c6c646cf.dir
+      size: 45655578
       nfiles: 1
   train:
     cmd: python src/train.py
     deps:
     - path: data/processed
       hash: md5
-      md5: 8cd46ef9d09cdf798823af05987280cc.dir
-      size: 45395143
+      md5: 0a80d5f1cbbd1688d5d60785c6c646cf.dir
+      size: 45655578
       nfiles: 1
     - path: src/train.py
       hash: md5
@@ -57,23 +57,23 @@ stages:
     outs:
     - path: models/history.csv
       hash: md5
-      md5: 619a50dc922fdc0ca1f7ade0d949ce8e
-      size: 811
+      md5: 2d8ba3a4a592494b94ff55bff0e25985
+      size: 813
     - path: models/model.h5
       hash: md5
-      md5: 510ee8bc2784e35ceb76a779766f8e04
+      md5: 91781d0a15ccbf113786660b71503a2f
       size: 4910168
   evaluate:
     cmd: python src/evaluate.py
     deps:
     - path: data/processed
       hash: md5
-      md5: 8cd46ef9d09cdf798823af05987280cc.dir
-      size: 45395143
+      md5: 0a80d5f1cbbd1688d5d60785c6c646cf.dir
+      size: 45655578
       nfiles: 1
     - path: models/model.h5
       hash: md5
-      md5: 510ee8bc2784e35ceb76a779766f8e04
+      md5: 91781d0a15ccbf113786660b71503a2f
       size: 4910168
     - path: src/evaluate.py
       hash: md5
@@ -82,9 +82,9 @@ stages:
     outs:
     - path: confusion_matrix.png
       hash: md5
-      md5: 02949afe086f14e30f1da627c100fe16
-      size: 71344
+      md5: 6cccb21137893b8912bfbd8fb6ec23ac
+      size: 71103
     - path: metrics.json
       hash: md5
-      md5: 3d8f75cb56ce12f9846cf12f453a3f57
-      size: 80
+      md5: b8ee75e9c02309b2f36d76302c6eae0f
+      size: 79

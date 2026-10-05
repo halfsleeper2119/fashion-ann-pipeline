@@ -6,8 +6,12 @@ from sklearn.model_selection import train_test_split
 params = yaml.safe_load(open("params.yaml"))["preprocess"]
 
 raw = np.load("data/raw/fashion_mnist.npz")
-x_train = raw["x_train"].astype("float32") / 127.5 - 1.0
-x_test  = raw["x_test"].astype("float32") / 127.5 - 1.0
+
+x_train = raw["x_train"].astype("float32") / 255.0
+x_test  = raw["x_test"].astype("float32") / 255.0
+mean, std = x_train.mean(), x_train.std()
+x_train = (x_train - mean) / std
+x_test  = (x_test - mean) / std
 
 x_tr, x_val, y_tr, y_val = train_test_split(
     x_train, raw["y_train"],
