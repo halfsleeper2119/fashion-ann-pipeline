@@ -1,0 +1,2 @@
+This is TESTgit diff --staged
+THIS IS THE EDITED VERSION IN HOTFIX
