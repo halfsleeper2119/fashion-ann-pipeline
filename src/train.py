@@ -9,8 +9,8 @@ d = np.load("data/processed/fashion_mnist.npz")
 
 model = keras.Sequential([
     keras.layers.Flatten(input_shape=(28, 28)),
-    keras.layers.Dense(p["hidden_units"], activation="relu"),
-    keras.layers.Dropout(p["dropout"]),
+    keras.layers.Dense(p["dense_units"], activation="relu"),
+    keras.layers.Dropout(p["dropout_rate"]),
     keras.layers.Dense(10, activation="softmax"),
 ])
 model.compile(optimizer=keras.optimizers.Adam(learning_rate=p["learning_rate"]),
