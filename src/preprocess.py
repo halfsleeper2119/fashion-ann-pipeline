@@ -11,7 +11,7 @@ x_test = raw["x_test"].astype("float32") / 255.0
 
 x_tr, x_val, y_tr, y_val = train_test_split(
     x_train, raw["y_train"],
-    test_size=params["val_split"], random_state=params["seed"],
+    test_size=params["test_size"], random_state=params["seed"],
     stratify=raw["y_train"])
 
 out = Path("data/processed")
